@@ -1,12 +1,16 @@
 var express = require("express");
+var tnebBiller = require("tnebBiller");
+
 var app = express();
+var tnebBiller = tnebBiller();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World!');
+	var html = tnebBiller.Calculate(request);
+	response.send(html);
 });
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-  console.log("Listening on " + port);
+	console.log("Listening on " + port);
 });
