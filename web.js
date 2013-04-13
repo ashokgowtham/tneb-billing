@@ -1,8 +1,8 @@
 var express = require("express");
-var tnebBiller = require("tnebBiller");
+var tnebBiller = require("./tnebBiller");
 
 var app = express();
-var tnebBiller = tnebBiller();
+var tnebBiller = new tnebBiller();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
